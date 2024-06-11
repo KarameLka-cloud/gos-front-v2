@@ -29,7 +29,7 @@ function getInstructionsList() {
               </div>
               <div v-else>
                 <a :href="instruction.link" class="d-block pt-2 pb-2 text-decoration-none" target="_blank"
-                   v-for="(instruction, index) in instructionsStore.instructions.list">{{ index + 1 }}.
+                   v-for="(instruction, index) in instructionsStore.instructions.list">{{ index + 1 }}
                   {{ instruction.title }}</a>
               </div>
             </div>

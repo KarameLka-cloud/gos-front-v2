@@ -2,6 +2,8 @@
 import {useServicesStore} from "../stores/services.js";
 import {useSectionsStore} from "../stores/sections.js";
 import {onMounted, ref} from "vue";
+import ServiceBlock from "./ui/ServiceBlock.vue";
+import ServiceList from "./ui/ServiceList.vue";
 
 const servicesStore = useServicesStore();
 const sectionsStore = useSectionsStore();
@@ -25,7 +27,7 @@ onMounted(() => {
     <h2 class="text-center text-danger" v-if="!fetching">{{ sectionContent.title }}</h2>
     <div class="row d-flex justify-content-around">
 
-      <div class="accordion col-lg-5" id="services-list-2">
+      <div class="accordion col-lg-5" id="services-list-1">
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -43,30 +45,8 @@ onMounted(() => {
                   </div>
                 </div>
                 <div v-else v-for="(service, index) in servicesStore.services.list_1.list.service">
-                  <a v-if="service.link" :href="service.link" target="_blank"
-                     class="d-block pt-2 pb-2 text-decoration-none">{{ index + 1 }}.
-                    {{ service.title }}</a>
-                  <div v-else class="accordion mt-3" id="services-sub-list">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                :data-bs-target="`#panelsStayOpen-services-sub-list-${service.id}`" aria-expanded="true"
-                                :aria-controls="`panelsStayOpen-services-sub-list-${service.id}`">
-                          {{ index + 1 }}. {{ service.title }}
-                        </button>
-                      </h2>
-                      <div :id="`panelsStayOpen-services-sub-list-${service.id}`" class="accordion-collapse collapse">
-                        <div class="max-height-400 overflow-y-auto">
-                          <div class="accordion-body">
-                            <div>
-                              <a v-for="service in service.children" :href="service.link" target="_blank"
-                                 class="d-block pt-2 pb-2 text-decoration-none">• {{ service.title }}</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ServiceBlock v-if="service.link" :service="service" :index="index + 1"/>
+                  <ServiceList v-else :service="service" :index="index"/>
                 </div>
               </div>
             </div>
@@ -92,30 +72,8 @@ onMounted(() => {
                   </div>
                 </div>
                 <div v-else v-for="(service, index) in servicesStore.services.list_2.list.service">
-                  <a v-if="service.link" :href="service.link" target="_blank"
-                     class="d-block pt-2 pb-2 text-decoration-none">{{ index + 1 }}.
-                    {{ service.title }}</a>
-                  <div v-else class="accordion mt-3" id="services-sub-list">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                :data-bs-target="`#panelsStayOpen-services-sub-list-${service.id}`" aria-expanded="true"
-                                :aria-controls="`panelsStayOpen-services-sub-list-${service.id}`">
-                          {{ index + 1 }}. {{ service.title }}
-                        </button>
-                      </h2>
-                      <div :id="`panelsStayOpen-services-sub-list-${service.id}`" class="accordion-collapse collapse">
-                        <div class="max-height-400 overflow-y-auto">
-                          <div class="accordion-body">
-                            <div>
-                              <a v-for="service in service.children" :href="service.link" target="_blank"
-                                 class="d-block pt-2 pb-2 text-decoration-none">• {{ service.title }}</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ServiceBlock v-if="service.link" :service="service" :index="index + 1"/>
+                  <ServiceList v-else :service="service" :index="index"/>
                 </div>
               </div>
             </div>
