@@ -13,10 +13,10 @@ function getInstructionsList() {
     <div class="accordion col-lg-10 m-lg-auto" id="instructions-list">
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
                   data-bs-target="#panelsStayOpen-instructions-list" aria-expanded="true"
                   aria-controls="panelsStayOpen-instructions-list" @click="getInstructionsList">
-            Инструкции и видеоматериалы по Госключу
+            <strong>Инструкции и видеоматериалы по Госключу</strong>
           </button>
         </h2>
         <div id="panelsStayOpen-instructions-list" class="accordion-collapse collapse">
@@ -29,7 +29,7 @@ function getInstructionsList() {
               </div>
               <div v-else>
                 <a :href="instruction.link" class="d-block pt-2 pb-2 text-decoration-none" target="_blank"
-                   v-for="(instruction, index) in instructionsStore.instructions.list">{{ index + 1 }}
+                   v-for="(instruction, index) in instructionsStore.instructions.list">{{ index + 1 }}.
                   {{ instruction.title }}</a>
               </div>
             </div>

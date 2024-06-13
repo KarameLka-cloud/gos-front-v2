@@ -17,11 +17,13 @@ onMounted(() => {
 
 <template>
   <div class="container mb-4" id="how-goskey" v-if="!fetching">
-    <h2 class="text-center text-danger">{{ sectionContent.title }}</h2>
+    <h2 class="text-center">
+      <div v-html="sectionContent.title"></div>
+    </h2>
 
     <div class="mb-4 p-4 bg-body-tertiary" v-for="section in sectionContent.children">
-      <h3 class="text-center text-danger">
-        {{ section.title }}
+      <h3 class="text-center">
+        <div v-html="section.title"></div>
       </h3>
       <div v-html="section.description"></div>
     </div>

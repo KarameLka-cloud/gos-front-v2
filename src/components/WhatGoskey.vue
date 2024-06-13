@@ -16,9 +16,8 @@ onMounted(() => {
 
 <template>
   <div class="container mb-4" id="what-goskey">
-    <h2 class="text-center text-danger" v-if="!fetching">
-      <img src="../assets/goskey.png" alt="" height="40">
-      {{ sectionContent.title }}
+    <h2 class="text-center" v-if="!fetching">
+      <div v-html="sectionContent.title"></div>
     </h2>
     <div class="text p-4 bg-body-tertiary" v-if="!fetching" v-html="sectionContent.description">
     </div>

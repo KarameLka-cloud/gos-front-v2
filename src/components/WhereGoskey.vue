@@ -24,16 +24,18 @@ onMounted(() => {
 
 <template>
   <div class="container mb-4" id="where-goskey">
-    <h2 class="text-center text-danger" v-if="!fetching">{{ sectionContent.title }}</h2>
+    <h2 class="text-center" v-if="!fetching">
+      <div v-html="sectionContent.title"></div>
+    </h2>
     <div class="row d-flex justify-content-around">
 
       <div class="accordion col-lg-5" id="services-list-1">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-services-list-1" aria-expanded="true"
                     aria-controls="panelsStayOpen-services-list-1" @click="getServicesList(1)">
-              с УНЭП Госключа вам доступно
+              <strong>с <span class="text-danger">УНЭП</span> Госключа вам доступно</strong>
             </button>
           </h2>
           <div id="panelsStayOpen-services-list-1" class="accordion-collapse collapse">
@@ -57,10 +59,10 @@ onMounted(() => {
       <div class="accordion col-lg-5" id="services-list-2">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button collapsed bg-warning" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-services-list-2" aria-expanded="true"
                     aria-controls="panelsStayOpen-services-list-2" @click="getServicesList(2)">
-              с УКЭП Госключа вам доступно
+              <strong>с <span class="text-danger">УКЭП</span> Госключа вам доступно</strong>
             </button>
           </h2>
           <div id="panelsStayOpen-services-list-2" class="accordion-collapse collapse">
