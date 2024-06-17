@@ -8,14 +8,18 @@ import Footer from "./components/Footer.vue";
 </script>
 
 <template>
-  <Navigation/>
-  <WhatGoskey/>
-  <WhereGoskey/>
-  <HowGoskey/>
-  <Instructions/>
-  <Footer/>
+  <div class="main container mt-3 mb-3 pb-3">
+    <Navigation/>
+    <WhatGoskey/>
+    <WhereGoskey/>
+    <HowGoskey/>
+    <Instructions/>
+    <Footer/>
+  </div>
 </template>
 
 <style scoped>
-
+.main {
+  box-shadow: 0px 0px 8px 2px grey;
+}
 </style>

@@ -15,16 +15,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mb-4" id="what-goskey">
+  <div class="container mt-4" id="what-goskey">
     <h2 class="text-center" v-if="!fetching">
       <div v-html="sectionContent.title"></div>
     </h2>
-    <div class="text p-4 bg-body-tertiary" v-if="!fetching" v-html="sectionContent.description">
+    <div class="text p-4 background" v-if="!fetching" v-html="sectionContent.description">
     </div>
   </div>
 </template>
 
 <style scoped>
+.background {
+  background-color: #fbe5d6;
+  border-radius: 40px;
+  box-shadow: 0px 2px 4px 1px grey;
+}
+
 .text {
   text-align: justify;
 }

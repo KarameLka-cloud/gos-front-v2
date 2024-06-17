@@ -25,4 +25,8 @@ onMounted(() => {
 .footer {
   font-size: 12px;
 }
+
+p, ul, ol {
+  margin: 0;
+}
 </style>
